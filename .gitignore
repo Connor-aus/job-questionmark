@@ -37,4 +37,8 @@ src/cv/
 
 # Serverless deployment artifacts
 .serverless/
-.env
+
+# Python package metadata
+*.egg-info/
+dist/
+build/
