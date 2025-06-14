@@ -37,7 +37,7 @@ plugins:
 custom:
   pythonRequirements:
     fileName: requirements.txt
-    dockerizePip: false
+    dockerizePip: true
     zip: true
     slim: true
   offline:
