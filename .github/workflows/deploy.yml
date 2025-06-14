@@ -27,11 +27,9 @@ jobs:
 
       - name: Install Serverless Python Requirements Plugin
         run: npm install --save-dev serverless-python-requirements
-        working-directory: ./infra
 
       - name: Install Serverless Offline Plugin
         run: npm install --save-dev serverless-offline
-        working-directory: ./infra
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt
@@ -47,7 +45,6 @@ jobs:
         run: echo "SERVERLESS_ACCESS_KEY=${{ secrets.SERVERLESS_ACCESS_KEY }}" >> $GITHUB_ENV
 
       - name: Deploy with Serverless
-        working-directory: ./infra
         run: sls deploy --stage prod
         env:
           SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
