@@ -6,7 +6,7 @@ from src.utils.logger import log
 
 load_dotenv()
 
-MODEL_ID = os.getenv("LLM_MODEL_ID", "claude-3-haiku-20240307")
+MODEL_ID = os.getenv("AGENT_MODEL_ID", "claude-3-haiku-20240307")
 log.debug("AGENT MODELID: " + MODEL_ID)
 
 from langchain_core.tools import tool
@@ -18,7 +18,7 @@ from src.tools.contact_connor_tool import run_contact_connor
 from langchain_anthropic import ChatAnthropic
 
 llm = ChatAnthropic(
-    model="claude-3-5-sonnet-latest",
+    model=MODEL_ID,
     temperature=0.5,
     max_tokens=2048,
 )
