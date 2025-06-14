@@ -6,7 +6,6 @@ provider:
   region: ap-southeast-2
   environment:
     # Add your environment variables here or use secrets manager/SSM
-    AWS_PROFILE: ${env:AWS_PROFILE}
     LLM_MODEL_ID: ${env:LLM_MODEL_ID}
     AGENT_ROLE_ARN: ${env:AGENT_ROLE_ARN}
     ANTHROPIC_API_KEY: ${env:ANTHROPIC_API_KEY}
