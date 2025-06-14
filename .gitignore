@@ -10,6 +10,7 @@ venv/
 
 # Environment variables
 .env
+.env*
 
 # Test output
 *.log
@@ -36,3 +37,4 @@ src/cv/
 
 # Serverless deployment artifacts
 .serverless/
+.env
