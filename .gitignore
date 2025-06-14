@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Environment variables
+.env
+
+# Test output
+*.log
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+.cache/
+
+# VSCode/IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Lambda build artifacts
+lambda_build/
+*.zip
+
+# Ignore data files (if not needed in repo)
+src/cv/
