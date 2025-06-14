@@ -1,9 +1,13 @@
+from pathlib import Path
 from src.llms.llm import llm
 from src.utils.logger import log
 
+# Get the directory containing this script
+CURRENT_DIR = Path(__file__).parent.parent
+
 CV_TEXT = ""
 
-with open('src/staticFiles/cv.txt', 'r') as f:
+with open(CURRENT_DIR / 'staticFiles' / 'cv.txt', 'r') as f:
     CV_TEXT = f.read()
 
 def run_job_fit(job_ad_text: str) -> str:

@@ -2,12 +2,13 @@
 from langchain_anthropic import ChatAnthropic
 import os
 from dotenv import load_dotenv
+from src.utils.logger import log
 
 load_dotenv()
 
 MODEL_ID = os.getenv("LLM_MODEL_ID", "claude-3-haiku-20240307")
 
-print("LLM MODELID: " + MODEL_ID)
+log.debug("LLM MODELID: " + MODEL_ID)
 
 llm = ChatAnthropic(
     model="claude-3-haiku-20240307",

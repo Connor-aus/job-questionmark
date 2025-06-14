@@ -2,11 +2,12 @@
 
 from dotenv import load_dotenv
 import os
+from src.utils.logger import log
 
 load_dotenv()
 
 MODEL_ID = os.getenv("LLM_MODEL_ID", "claude-3-haiku-20240307")
-print("AGENT MODELID: " + MODEL_ID)
+log.debug("AGENT MODELID: " + MODEL_ID)
 
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent

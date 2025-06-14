@@ -1,0 +1,76 @@
+Summary:
+
+Software Engineer and Technical Architect with a passion for designing scalable, resilient systems using cloud-native and serverless architectures. 1 year architecting solutions for a global E-commerce platform and 2 years building mission-critical software in healthcare. Skilled at translating business needs into secure, maintainable, and high-performing systems across distributed environments. Curious, collaborative, and driven to solve complex architectural challenges with pragmatic, user-centric design.
+Cloud Engineer with experience architecting and delivering robust, scalable cloud native solutions using AWS, Azure, and serverless architectures. Background includes building mission-critical healthcare apps and supporting a global E-commerce platform, with hands-on contributions across the entire software delivery lifecycle. Strong focus on observability, performance, security, and cost-efficient architecture. Committed to clean code, deep problem-solving, and continuous learning in modern cloud ecosystems.
+
+Skills:
+
+Cloud & DevOps: AWS (Lambda, EC2, ECS, S3, Parameter Store, Route 53, API Gateway, CloudFront, IAM, DynamoDB, Redis, CloudFormation, CloudWatch, VPC, VPN, etc.), Azure, Docker, Serverless Architecture, CI/CD (GitLab CI/CD, GitHub Actions), Terraform, Akamai, Vercel.
+Languages & Frameworks: JavaScript, C#, Python, SQL, NoSQL, HTML, CSS, YAML, XAML, .NET, Node.js, Express, React, React Native, Xamarin, Blazor, Bash.
+Tooling: Datadog, Sentry, Lumigo, Git, Linux, Azure DevOps, Atlassian Suite, Harness.
+Practices: Cloud Engineering, Architecture Reviews, Cross-functional Collaboration, Stakeholder Communication, Technical Documentation, FinOps. Agile Methodologies, Microservices, RESTful API Design, Infrastructure as Code, Caching Strategies, Containers & Orchestration, Security & Authentication Standards.
+
+Languages: JavaScript/TypeScript, Python, C#, SQL
+Frontend Tech: React, React Native
+Backend Tech: Node.js, Express, .NET (C#)
+Cloud & DevOps: AWS (Lambda, API Gateway, DynamoDB, S3, Redis, CloudFront, Parameter Store, IAM, CloudWatch, VPC, etc.), Azure, Docker, CI/CD (GitLab CI/CD, GitHub Actions), Terraform, Akamai
+Tools: Git, Linux, Datadog, Sentry, Lumigo, Atlassian Suite, Azure DevOps
+Practices: Cloud Engineering, RESTful API Design, Agile Methodologies, Architecture & Code Reviews, Cross-functional Collaboration, Observability & Monitoring, Security & Authentication, Technical Documentation, Cost Optimization (FinOps), RCA & Incident Management
+
+
+Professional Experience:
+
+KFC Global | Technical Architect		Remote (contract)   05/2024 - 05/2025
+Contributed to the architecture and delivery of a global ecommerce platform serving 15M+ users/month across 6 countries, playing an integral role across requirements analysis, system design, implementation, and production support.
+Reduced AWS operational costs by ~38% through a comprehensive audit and optimization of compute, networking, and storage resources.
+Authored and implemented the organization-wide observability strategy, establishing standards for logging, monitoring, and alerting using Datadog, Sentry, Lumigo, and CloudWatch, improving visibility across distributed systems.
+Played a key role in Datadog integration and configuration, enabling real-time monitoring and supporting 300+ production alerts/month, improving response accuracy, issue resolution speed, and SLA adherence.
+Migrated runtime configuration management to AWS Parameter Store, replacing static pipeline variables with secure, dynamic runtime injection, eliminating the need for redeployments and improving agility across environments.
+Diagnosed and remediated leading causes of failure in a microservice ecosystem, resulting in >80% reduction in system error rate and significantly improving stability.
+Presented and executed a CDN strategy, onboarding all remaining hostnames to Akamai and deprecating legacy domains to improve global scalability and user-experience through reduced response times.
+Implemented edge caching rules for high-traffic endpoints, reducing total CDN throughput by ~30%, lowering response latency and decreasing backend load.
+Conducted root cause analyses (RCAs) of high-severity incidents, introducing architectural remediations that reduced MTTR and mitigated risk of recurrence.
+Enforced architectural alignment with internal security policies, auditing backend APIs and driving remediation efforts to strengthen authentication and access control.
+Engineered automation for common support operations, reducing manual effort and cutting mean time to resolution by >70%, improving SLA compliance.
+
+
+SDSI | Full Stack Software Engineer		Brisbane, AUS    03/2022 - 04/2024
+Engineered and launched STEMconnect, a cross-platform mobile application for emergency services, featuring SignalR-based real-time messaging, turn-by-turn navigation, and cloud-based auto-scaling/failover, supporting >4K concurrent users in critical response scenarios.
+Designed and delivered STEMCollect, a .NET MAUI application hosted across Azure and on-prem infrastructure, enabling resilient data capture and integration with third-party healthcare systems.
+Reduced data sync times by 80% by implementing efficient data batching.
+Collaborated with third-party consultants and external stakeholders to lead technical integration, deliver architectural documentation, conduct training, and present product capabilities at the CAA Congress - strengthening adoption and building trust among healthcare and government partners.
+
+
+Department of Education | Teacher		London, UK / Brisbane, AUS    01/2018 - 03/2022
+Created supportive learning environments across diverse school settings, fostering clear communication, addressing varied emotional needs, and collaborating with stakeholders to align educational goals and outcomes.
+
+
+Projects:
+
+Cloud-Hosted Gaming Platform
+Architected and deployed a scalable web-based maze game on AWS using EC2, Auto Scaling, Docker, and Redis to ensure responsive, low-latency gameplay.
+
+Applied Machine Learning and Predictive Modelling
+Designed, tested and delivered clustering, association mining, regression, and neural network models to demonstrate practical ML implementation and insight generation using real-world datasets.
+
+AI-Driven Cybersecurity Intelligence
+Designed a microservice prototype for Securemation, integrating ML and workflow orchestration to process cybersecurity threat data into prioritized risks, mitigation strategies, and 14-day forecasts.
+
+
+Education and Certification:
+
+AWS Certified	
+Cloud Practitioner	06/2025
+AI Practitioner	
+Machine learning Engineer - Associate	Anticipated:   06/2025
+Solutions Architect - Associate	
+SysOps Administrator - Associate	
+Developer - Associate	
+Microsoft Certified	
+Azure Fundamentals	06/2025
+Master of Information Technology (IT) | Queensland University of Technology	Brisbane, AUS    2021 - 2022
+Major: Software Development
+GPA 6.94 / 7
+4x Dean's List of Students with Excellent Academic Performance
+Bachelor of Education | Queensland University of Technology	Brisbane, AUS    2013 - 2017
+Double major: Mathematics, History

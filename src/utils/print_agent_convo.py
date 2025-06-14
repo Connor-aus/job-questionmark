@@ -48,7 +48,7 @@ def print_agent_conversation(data, logger: Callable[[str], None] = log.info):
             usage_metadata = safe_get(message, "usage_metadata", {})
             tokens = safe_get(usage_metadata, "total_tokens", 0)
             if tokens:
-                print(f"Tokens: {tokens}")
+                logger(f"Tokens: {tokens}")
                 total_tokens += tokens
     
     # Print tool responses

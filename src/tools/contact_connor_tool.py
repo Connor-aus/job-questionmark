@@ -23,7 +23,7 @@ Instructions:
 """ 
     response = llm.invoke(prompt)
 
-    print("RESPONSE CONTENT: " + response.content)
+    log.debug("RESPONSE CONTENT: " + response.content)
 
     content_str = str(response.content)
     if str(response.content).__contains__(messageSentConfirmation):

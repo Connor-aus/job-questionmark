@@ -2,6 +2,7 @@ import sys
 import env_setup
 from src.agents.unified_agent import agent
 from src.utils.print_agent_convo import print_agent_conversation
+from src.utils.logger import log
 
 # Default message options
 # default_message = "What capabilities can you perfrom?"
@@ -21,7 +22,7 @@ def main_with_sys_argv():
     # Create the inputs dictionary
     agent_inputs = {"messages": [{"role": "user", "content": user_message}]}
     
-    print(f"Sending message: {user_message}")
+    log.info(f"Sending message: {user_message}")
     
     for chunk in agent.stream(agent_inputs, stream_mode="updates"):
         print_agent_conversation(chunk)

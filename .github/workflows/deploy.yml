@@ -24,6 +24,7 @@ jobs:
 
       - name: Install Serverless Framework
         run: npm install -g serverless
+        # Do i need to install serverless-python-requirements?
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt

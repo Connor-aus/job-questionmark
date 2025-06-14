@@ -3,14 +3,20 @@ service: job-questionmark
 provider:
   name: aws
   runtime: python3.11
-  region: us-east-1
+  region: ap-southeast-2
   environment:
     # Add your environment variables here or use secrets manager/SSM
-    # EXAMPLE_VAR: value
+    AWS_PROFILE: ${env:AWS_PROFILE}
+    LLM_MODEL_ID: ${env:LLM_MODEL_ID}
+    AGENT_ROLE_ARN: ${env:AGENT_ROLE_ARN}
+    ANTHROPIC_API_KEY: ${env:ANTHROPIC_API_KEY}
+    MAX_INPUT_LENGTH: ${env:MAX_INPUT_LENGTH}
+    LOGGING_LEVEL: ${env:LOGGING_LEVEL}
 
 functions:
   api:
-    handler: src/main.handler
+    handler: src.main.handler
+    timeout: 30
     events:
       - httpApi:
           path: /agent
@@ -20,12 +26,14 @@ package:
   patterns:
     - '!venv/**'
     - '!tests/**'
+    - '!infra/**'
     - 'src/**'
     - 'requirements.txt'
     - '.env'
 
 plugins:
   - serverless-python-requirements
+  - serverless-offline
 
 custom:
   pythonRequirements:
