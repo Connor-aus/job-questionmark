@@ -15,7 +15,7 @@ provider:
 functions:
   api:
     handler: src.main.handler
-    timeout: 30
+    timeout: 28
     events:
       - httpApi:
           path: /agent
