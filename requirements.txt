@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]         # For local dev server
+langchain
+langgraph
+anthropic                # For Claude LLMs
+structlog
+pydantic
+mangum                   # For AWS Lambda ASGI support
+boto3
+python-dotenv            # For loading .env files
