@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from src.utils.logger import log
 from src.handlers.agent_handler import handle_agent_request
+from mangum import Mangum
 
 
 app = FastAPI()
@@ -21,3 +22,5 @@ async def invoke_agent(request: Request):
     except Exception as e:
         log.exception("Request failed: %s", str(e))
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+handler = Mangum(app)

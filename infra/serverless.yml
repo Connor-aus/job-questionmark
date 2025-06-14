@@ -1,0 +1,35 @@
+service: job-questionmark
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1
+  environment:
+    # Add your environment variables here or use secrets manager/SSM
+    # EXAMPLE_VAR: value
+
+functions:
+  api:
+    handler: src/main.handler
+    events:
+      - httpApi:
+          path: /agent
+          method: post
+
+package:
+  patterns:
+    - '!venv/**'
+    - '!tests/**'
+    - 'src/**'
+    - 'requirements.txt'
+    - '.env'
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    fileName: requirements.txt
+    dockerizePip: true
+    zip: true
+    slim: true 
