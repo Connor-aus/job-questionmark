@@ -29,6 +29,10 @@ jobs:
         run: npm install --save-dev serverless-python-requirements
         working-directory: ./infra
 
+      - name: Install Serverless Offline Plugin
+        run: npm install --save-dev serverless-offline
+        working-directory: ./infra
+
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 

@@ -39,4 +39,8 @@ custom:
     fileName: requirements.txt
     dockerizePip: true
     zip: true
-    slim: true 
+    slim: true
+  offline:
+    useChildProcesses: true
+    noPrependStageInUrl: true
+    httpPort: 3000 
