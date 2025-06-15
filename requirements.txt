@@ -1,10 +1,11 @@
-fastapi
-uvicorn[standard]         # For local dev server
-langchain
-langgraph
-anthropic                # For Claude LLMs
-structlog
-pydantic
-mangum                   # For AWS Lambda ASGI support
-boto3
-python-dotenv            # For loading .env files
+anthropic==0.54.0
+boto3==1.38.36
+fastapi==0.115.12
+langchain==0.3.25
+langchain-anthropic==0.3.15
+langchain-core==0.3.65
+mangum==0.19.0
+numpy==1.22.4
+pydantic==2.11.5
+python-dotenv==1.1.0
+uvicorn==0.34.3

@@ -40,6 +40,8 @@ custom:
     dockerizePip: true
     zip: true
     slim: true
+    pipCmdExtraArgs:
+      - '--upgrade'
   offline:
     useChildProcesses: true
     noPrependStageInUrl: true
