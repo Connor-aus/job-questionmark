@@ -5,7 +5,6 @@ provider:
   runtime: python3.11
   region: ap-southeast-2
   environment:
-    # Add your environment variables here or use secrets manager/SSM
     LLM_MODEL_ID: ${env:LLM_MODEL_ID}
     AGENT_ROLE_ARN: ${env:AGENT_ROLE_ARN}
     ANTHROPIC_API_KEY: ${env:ANTHROPIC_API_KEY}
@@ -20,6 +19,8 @@ functions:
       - httpApi:
           path: /agent
           method: post
+    layers:
+      - Ref: PythonRequirementsLambdaLayer
 
 package:
   patterns:
@@ -28,7 +29,11 @@ package:
     - '!infra/**'
     - 'src/**'
     - 'requirements.txt'
-    - '.env'
+    - '!job_questionmark.egg-info/**'
+    - '!.git/**'
+    - '!.env'
+    - '!.serverless/**'
+
 
 plugins:
   - serverless-python-requirements
@@ -36,14 +41,8 @@ plugins:
 
 custom:
   pythonRequirements:
-    fileName: requirements.txt
+    layer: true             # <--- This tells the plugin to create a Lambda Layer
+    slim: true
     dockerizePip: true
     zip: true
-    slim: true
-    layer: false
-    pipCmdExtraArgs:
-      - '--upgrade'
-  offline:
-    useChildProcesses: true
-    noPrependStageInUrl: true
-    httpPort: 3000 
+    invalidateCaches: true  # optional but helpful during debugging

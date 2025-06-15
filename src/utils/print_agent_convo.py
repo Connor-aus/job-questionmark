@@ -14,9 +14,7 @@ def print_agent_conversation(data, logger: Callable[[str], None] = log.info):
         else:
             return default
     
-    logger("=" * 60)
     logger("AGENT CONVERSATION")
-    logger("=" * 60)
     
     total_tokens = 0
     
@@ -27,7 +25,6 @@ def print_agent_conversation(data, logger: Callable[[str], None] = log.info):
         
         for i, message in enumerate(messages, 1):
             logger(f"\n📤 AGENT MESSAGE {i}:")
-            logger("-" * 30)
             
             # Get content safely
             content = safe_get(message, "content")
@@ -58,7 +55,6 @@ def print_agent_conversation(data, logger: Callable[[str], None] = log.info):
         
         for i, tool_msg in enumerate(tool_messages, 1):
             logger(f"\n🔧 TOOL RESPONSE {i}:")
-            logger("-" * 30)
             logger(f"Tool: {safe_get(tool_msg, 'name')}")
             logger(f"Status: {safe_get(tool_msg, 'status', 'success')}")
             logger(f"Response: {safe_get(tool_msg, 'content')}")
@@ -70,7 +66,6 @@ def print_agent_conversation(data, logger: Callable[[str], None] = log.info):
         
         for i, message in enumerate(response_messages, 1):
             logger(f"\n📤 AGENT FOLLOW-UP {i}:")
-            logger("-" * 30)
             logger(f"Text: {safe_get(message, 'content')}")
             
             usage_metadata = safe_get(message, "usage_metadata", {})
@@ -80,6 +75,4 @@ def print_agent_conversation(data, logger: Callable[[str], None] = log.info):
                 total_tokens += tokens
     
     # Print summary
-    logger("\n" + "=" * 60)
     logger(f"TOTAL TOKENS USED: {total_tokens}")
-    logger("=" * 60)

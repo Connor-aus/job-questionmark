@@ -6,8 +6,8 @@ from src.utils.logger import log
 
 load_dotenv()
 
-MODEL_ID = os.getenv("AGENT_MODEL_ID", "claude-3-haiku-20240307")
-log.debug("AGENT MODELID: " + MODEL_ID)
+MODEL_ID = os.getenv("AGENT_MODEL_ID", "claude-3-5-sonnet-latest")
+log.info("AGENT MODELID: " + MODEL_ID)
 
 from langchain_core.tools import tool
 from langgraph.prebuilt import create_react_agent

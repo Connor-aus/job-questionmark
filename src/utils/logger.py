@@ -4,10 +4,12 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-logging_level = os.getenv("LOGGING_LEVEL", "INFO")
+logging_level = os.getenv("LOGGING_LEVEL", 20)
+
+print("Logging level: " + logging_level)
 
 structlog.configure(
-    wrapper_class=structlog.make_filtering_bound_logger(logging_level),
+    wrapper_class=structlog.make_filtering_bound_logger(10),
     processors=[
         structlog.processors.TimeStamper(fmt="iso"),
         structlog.processors.format_exc_info,
