@@ -33,6 +33,7 @@ package:
     - '!.git/**'
     - '!.env'
     - '!.serverless/**'
+    - '!analyze_deps.py'
 
 
 plugins:
