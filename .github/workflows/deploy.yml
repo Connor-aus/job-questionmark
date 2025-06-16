@@ -53,3 +53,4 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           MAX_INPUT_LENGTH: ${{ secrets.MAX_INPUT_LENGTH }}
           LOGGING_LEVEL: ${{ secrets.LOGGING_LEVEL }}
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
