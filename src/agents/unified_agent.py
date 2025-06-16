@@ -65,6 +65,6 @@ agent = create_react_agent(
     If the input doesn’t match a capability, politely explain that you cannot help.
     If unsure, do not use any tool.
     You can only use a single tool. Once you have used a tool, you must return 'All done!', two new lines, followed by that EXACT response, without using another tool.
-    Never mention tool names or function names.
+    Never mention tool names.
     """,
 )

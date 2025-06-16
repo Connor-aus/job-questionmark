@@ -4,7 +4,7 @@ from src.utils.logger import log
 from src.api.agent_request_validation import validate_input
 from src.utils.print_agent_convo import print_agent_conversation
 
-def handle_agent_request(input_text: str) -> str:
+def handle_agent_request(input_text: str) -> dict:
     log.info("Validating and processing agent request")
 
     try:
@@ -26,14 +26,27 @@ def handle_agent_request(input_text: str) -> str:
                         final_response = msg.content
 
         if final_response is None:
-            raise RuntimeError("Agent did not return a final response.")
+            log.error("Agent did not return a final response")
+            return {
+                "success": False,
+                "error": "Agent did not return a response. Please try again."
+            }
 
         log.info(f"Final agent response: {final_response}")
-        return final_response
+        return {
+            "success": True,
+            "response": final_response
+        }
 
     except ValueError as ve:
         log.warning("Validation error: %s", str(ve))
-        raise
-    except Exception:
+        return {
+            "success": False,
+            "error": str(ve)
+        }
+    except Exception as e:
         log.exception("Agent invocation failed")
-        raise RuntimeError(f"Agent invocation failed")
+        return {
+            "success": False,
+            "error": "An unexpected error occurred while processing your request. Please try again later."
+        }

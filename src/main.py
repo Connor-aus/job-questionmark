@@ -20,14 +20,21 @@ try:
         try:
             body = await request.json()
             input_text = body.get("input", "")
-            response = handle_agent_request(input_text)
-            return {"response": response}
-        except ValueError as ve:
-            log.exception("Request failed: %s", str(ve))
-            return JSONResponse(status_code=400, content={"error": str(ve)})
+            result = handle_agent_request(input_text)
+            
+            if result["success"]:
+                return {"response": result["response"]}
+            else:
+                return JSONResponse(
+                    status_code=400 if "validation" in result.get("error", "").lower() else 500,
+                    content={"error": result["error"]}
+                )
         except Exception as e:
-            log.exception("Request failed: %s", str(e))
-            return JSONResponse(status_code=500, content={"error": str(e)})
+            log.exception("Unhandled exception in agent endpoint: %s", str(e))
+            return JSONResponse(
+                status_code=500, 
+                content={"error": "An unexpected error occurred. Please try again later."}
+            )
 
     @app.post("/contact")
     async def contact_form(request: Request):
@@ -39,8 +46,11 @@ try:
                 content=result["body"]
             )
         except Exception as e:
-            log.exception("Contact request failed: %s", str(e))
-            return JSONResponse(status_code=500, content={"error": str(e)})
+            log.exception("Unhandled exception in contact endpoint: %s", str(e))
+            return JSONResponse(
+                status_code=500, 
+                content={"error": "An unexpected error occurred. Please try again later."}
+            )
 
     asgi_handler = Mangum(app)
 
@@ -48,11 +58,19 @@ try:
         if 'httpMethod' not in event and 'input' in event:
             try:
                 input_text = event.get("input", "")
-                response = handle_agent_request(input_text)
-                return {"statusCode": 200, "body": json.dumps({"response": response})}
+                result = handle_agent_request(input_text)
+                
+                if result["success"]:
+                    return {"statusCode": 200, "body": json.dumps({"response": result["response"]})}
+                else:
+                    status_code = 400 if "validation" in result.get("error", "").lower() else 500
+                    return {"statusCode": status_code, "body": json.dumps({"error": result["error"]})}
             except Exception as e:
-                log.exception("Direct Lambda invocation failed: %s", str(e))
-                return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+                log.exception("Unhandled exception in direct Lambda invocation: %s", str(e))
+                return {
+                    "statusCode": 500, 
+                    "body": json.dumps({"error": "An unexpected error occurred. Please try again later."})
+                }
         
         return asgi_handler(event, context)
 
