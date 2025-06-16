@@ -49,8 +49,12 @@ jobs:
         env:
           SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
           LLM_MODEL_ID: ${{ secrets.LLM_MODEL_ID }}
+          APP_API_BASE_URL: ${{ secrets.APP_API_BASE_URL }}
+          AGENT_MODEL_ID: ${{ secrets.AGENT_MODEL_ID }}
           AGENT_ROLE_ARN: ${{ secrets.AGENT_ROLE_ARN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           MAX_INPUT_LENGTH: ${{ secrets.MAX_INPUT_LENGTH }}
           LOGGING_LEVEL: ${{ secrets.LOGGING_LEVEL }}
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          AWS_REGION_DEPLOYMENT: ${{ secrets.AWS_REGION_DEPLOYMENT }}
+          APP_API_KEY_DEV: ${{ secrets.APP_API_KEY_DEV }}
