@@ -29,12 +29,20 @@ package:
     - '!infra/**'
     - 'src/**'
     - 'requirements.txt'
-    - '!job_questionmark.egg-info/**'
-    - '!.git/**'
+    - '!analyze_deps.py'
+    - '!package/**'
+    - '!layers/**'
+    - '!**/__pycache__/**'
     - '!.env'
     - '!.serverless/**'
-    - '!analyze_deps.py'
-
+    - '!.github/**'
+    - '!.pytest_cache/**'
+    - '!.coverage'
+    - '!htmlcov/**'
+    - '!.vscode/**'
+    - '!.idea/**'
+    - '!*.log'
+    - '!setup.py'
 
 plugins:
   - serverless-python-requirements
