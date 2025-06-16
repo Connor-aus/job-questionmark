@@ -11,7 +11,7 @@ provider:
     MAX_INPUT_LENGTH: ${env:MAX_INPUT_LENGTH}
     LOGGING_LEVEL: ${env:LOGGING_LEVEL}
     CONTACT_EMAIL: ${env:CONTACT_EMAIL}
-    AWS_REGION: ap-southeast-2
+    AWS_REGION_DEPLOYMENT: ${env:AWS_REGION_DEPLOYMENT}
 
 functions:
   api:

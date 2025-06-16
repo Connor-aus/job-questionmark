@@ -86,7 +86,7 @@ def send_email(recipient: str, sender_email: str, subject: str, message_body: st
     Send an email using AWS SES
     """
     # Create a new SES client
-    client = boto3.client('ses', region_name=os.environ.get('AWS_REGION', 'ap-southeast-2'))
+    client = boto3.client('ses', region_name=os.environ.get('AWS_REGION_DEPLOYMENT', 'ap-southeast-2'))
     
     # Format the email body
     email_body = f"""
