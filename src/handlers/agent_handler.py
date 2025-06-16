@@ -1,7 +1,7 @@
 from langchain_core.messages import AIMessage
 from src.agents.unified_agent import agent
 from src.utils.logger import log
-from src.api.validation import validate_input
+from src.api.agent_request_validation import validate_input
 from src.utils.print_agent_convo import print_agent_conversation
 
 def handle_agent_request(input_text: str) -> str:
