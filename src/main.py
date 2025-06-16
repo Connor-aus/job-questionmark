@@ -10,6 +10,7 @@ try:
     from fastapi import Request
     from fastapi.responses import JSONResponse
     from src.handlers.agent_handler import handle_agent_request
+    from src.handlers.contact_handler import handle_contact_request
     from mangum import Mangum
 
     app = FastAPI()
@@ -26,6 +27,19 @@ try:
             return JSONResponse(status_code=400, content={"error": str(ve)})
         except Exception as e:
             log.exception("Request failed: %s", str(e))
+            return JSONResponse(status_code=500, content={"error": str(e)})
+
+    @app.post("/contact")
+    async def contact_form(request: Request):
+        try:
+            body = await request.json()
+            result = handle_contact_request(body)
+            return JSONResponse(
+                status_code=result["statusCode"],
+                content=result["body"]
+            )
+        except Exception as e:
+            log.exception("Contact request failed: %s", str(e))
             return JSONResponse(status_code=500, content={"error": str(e)})
 
     asgi_handler = Mangum(app)

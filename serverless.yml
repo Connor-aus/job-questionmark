@@ -10,6 +10,8 @@ provider:
     ANTHROPIC_API_KEY: ${env:ANTHROPIC_API_KEY}
     MAX_INPUT_LENGTH: ${env:MAX_INPUT_LENGTH}
     LOGGING_LEVEL: ${env:LOGGING_LEVEL}
+    CONTACT_EMAIL: ${env:CONTACT_EMAIL}
+    AWS_REGION: ap-southeast-2
 
 functions:
   api:
@@ -18,6 +20,16 @@ functions:
     events:
       - httpApi:
           path: /agent
+          method: post
+    layers:
+      - Ref: PythonRequirementsLambdaLayer
+  
+  contact:
+    handler: src.main.handler
+    timeout: 28
+    events:
+      - httpApi:
+          path: /contact
           method: post
     layers:
       - Ref: PythonRequirementsLambdaLayer
