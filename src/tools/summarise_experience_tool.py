@@ -15,7 +15,7 @@ with open(CURRENT_DIR / 'staticFiles' / 'projects.txt', 'r') as f:
     PROJECTS_TEXT = f.read()
 
 def run_summarise_experience(experience_question: str) -> str:
-    log.info("Running Job Fit Tool")
+    log.info("Running Experience Summary Tool")
     prompt = f"""
 You are an expert career assistant helping potential employers understand Connor experience and skills.
 
@@ -33,4 +33,5 @@ Please return:
 - Use clear, professional language suitable for recruiters
 """
     response = llm.invoke(prompt)
+    log.info("Experience Summary Tool response: " + response.content)
     return response.content
