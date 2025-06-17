@@ -1,0 +1,26 @@
+This project is a serverless AI assistant built using LangChain and AWS Lambda. The assistant is designed to help users interact with Connor McSweeney’s professional profile by performing one of several predefined tasks. It behaves like an agentic AI, capable of using tools to process requests intelligently and return useful responses.
+
+It can:
+- Analyze how well Connor fits a specific job description
+- Answer questions about Connor’s skills and experience
+- Forward a contact message to Connor
+- Explain how users can interact with it
+
+Key Technologies Used:
+- Backend Language: Python
+- Backend Framework: FastAPI
+- LLM Model: Claude Sonnet 3.5 and Claude 3 Haiku
+- AI/LLM Framework: LangChain, LangGraph
+- Serverless Deployment: Serverless Framework, AWS Lambda, API Gateway, Simple Email Service (SES), Route53, Amazon Certificate Manager (ACM), IAM
+- Infrastructure as Code: serverless.yml
+- Logging: structlog
+- Version Control: Git, GitHub
+- CI/CD: GitHub Actions
+- Validator: Custom validator
+
+- Front end Language: TypeScript
+- Front end Framework: React
+- HTTP Requests: axios
+- Testing: jest
+- Front End Hosting & Content Delivery Network (CDN): AWS Simple Sotrage Service (S3), CloudFront
+- Access Control: Origin Access Control (OAC), Identity and Access Management (IAM - Principle of Least Privilege)

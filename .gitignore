@@ -35,6 +35,9 @@ lambda_build/
 # Ignore data files (if not needed in repo)
 src/cv/
 
+# Serverless build output
+.package/
+
 # Serverless deployment artifacts
 .serverless/
 
