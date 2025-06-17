@@ -1,3 +1,5 @@
+1. AI Agent for Professional Profile (Connor's assistant - the one handling this request)
+
 This project is a serverless AI assistant built using LangChain and AWS Lambda. The assistant is designed to help users interact with Connor McSweeney’s professional profile by performing one of several predefined tasks. It behaves like an agentic AI, capable of using tools to process requests intelligently and return useful responses.
 
 It can:
@@ -24,3 +26,14 @@ Key Technologies Used:
 - Testing: jest
 - Front End Hosting & Content Delivery Network (CDN): AWS Simple Sotrage Service (S3), CloudFront
 - Access Control: Origin Access Control (OAC), Identity and Access Management (IAM - Principle of Least Privilege)
+
+2. Cloud-Hosted Gaming Platform
+Architected and deployed a scalable web-based maze game on AWS using EC2, Auto Scaling, Docker, and Redis to ensure responsive, low-latency gameplay.
+Built using a React/Javascript FE and a Node.js Axios backend. Made use of intermediary caching for responsive play.
+
+3. Applied Machine Learning and Predictive Modelling
+Designed, tested and delivered clustering, association mining, regression, and neural network models to demonstrate practical ML implementation and insight generation using real-world datasets.
+
+4. AI-Driven Cybersecurity Intelligence
+Designed a microservice prototype for Securemation, integrating ML and workflow orchestration to process cybersecurity threat data into prioritized risks, mitigation strategies, and 14-day forecasts.
+Used Red Hat Process Automation Manager, 

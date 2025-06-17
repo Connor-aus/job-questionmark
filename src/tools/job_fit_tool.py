@@ -6,9 +6,13 @@ from src.utils.logger import log
 CURRENT_DIR = Path(__file__).parent.parent
 
 CV_TEXT = ""
+PROJECTS_TEXT = ""
 
 with open(CURRENT_DIR / 'staticFiles' / 'cv.txt', 'r') as f:
     CV_TEXT = f.read()
+
+with open(CURRENT_DIR / 'staticFiles' / 'projects.txt', 'r') as f:
+    PROJECTS_TEXT = f.read()
 
 def run_job_fit(job_ad_text: str) -> str:
     log.info("Running Job Fit Tool")
@@ -18,14 +22,17 @@ You are an expert career assistant helping potential employers understand how we
 Connor's experience:
 \"\"\"{CV_TEXT}\"\"\"
 
+Connor's projects:
+\"\"\"{PROJECTS_TEXT}\"\"\"
+
 Job description:
 \"\"\"{job_ad_text}\"\"\"
 
 Please return:
-# - Which skills or experiences Connor matches. Be concise and refer to specific examples from Connor's experience
-# - Which are missing or partial
-# - An overall fit score (0–100%) with a brief explanation
-# - Use clear, professional language suitable for recruiters
+# - Which skills or experiences from the Job Description Connor matches based on his experience and projects. Refer to specific examples from Connor's experience and projects.
+# - Which skills are missing or partial.
+# - An overall fit score (0–100%) with a brief explanation.
+# - Use clear, professional language suitable for recruiters.
 """
     response = llm.invoke(prompt)
     return response.content
