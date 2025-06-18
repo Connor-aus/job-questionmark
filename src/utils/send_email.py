@@ -1,11 +1,10 @@
-from src.utils.logger import log
 import json
 import os
-import requests
 import re
+import boto3
+from src.utils.logger import log
 
-API_BASE_URL = os.getenv("APP_API_BASE_URL", "https://api-dev.whoisconnor.net/")
-X_API_KEY = os.getenv("APP_API_KEY_DEV")
+lambda_client = boto3.client("lambda")
 
 class Response:
     def __init__(self, statusCode: int = 500, body: str = "Unknown error"):
@@ -23,76 +22,46 @@ def send_email(email_content: str) -> Response:
 
         log.info(f"Successfully parsed email content. Email: {email}, Subject: {subject}, Message: {message}")
 
-        # Payload to send to Lambda B
         payload = {
             "email": email,
             "subject": subject,
             "message": message
         }
 
-        # Headers for the HTTP request (e.g., shared secret auth)
-        headers = {
-            "Content-Type": "application/json",
-            "x-api-key": X_API_KEY
-        }
-
-        # Make the HTTP POST request to the other Lambda
-        response = requests.post(
-            f"{API_BASE_URL}/contact",
-            data=json.dumps(payload),
-            headers=headers,
-            timeout=10
+        log.info("Invoking Lambda function job-questionmark-dev-contact")
+        response = lambda_client.invoke(
+            FunctionName="job-questionmark-dev-contact",
+            InvocationType="RequestResponse",
+            Payload=json.dumps(payload),
         )
 
-        response.raise_for_status()  # Raises error for 4xx/5xx
+        result_payload = response["Payload"].read()
+        result = json.loads(result_payload)
 
-        log.info(f"Success calling Contact API. Response: {response.json()}")
+        log.info(f"Success calling Lambda. Response: {result}")
 
         return Response(
             statusCode=200,
             body=json.dumps({
-                "response": response.json()
+                "response": result
             })
         )
 
     except Exception as e:
-        log.error(f"Error calling Contact Connor: {e}")
+        log.error(f"Error calling Lambda: {e}")
         return Response(
             statusCode=500,
             body=json.dumps({
-                "response": parse_error_response(response)
+                "response": "Internal server error"
             })
         )
 
-def parse_error_response(response: requests.Response) -> str:
+# Optional: clean up parse_error_response if unused
+def parse_error_response(response: dict) -> str:
     try:
-        match = re.search(r'Value error, (.*?) \[type=value', response['error'])
+        match = re.search(r'Value error, (.*?) \[type=value', response.get("error", ""))
         if match:
-            message = match.group(1)
-            return str(message)
-        else:
-            return Response(
-                statusCode=500,
-                body=json.dumps({
-                    "response": "Unknown error"
-                })
-            )
-    except:
-        return Response(
-                statusCode=500,
-                body=json.dumps({
-                    "response": "Unknown error"
-                })
-            )
-    
-#     import boto3
-
-# lambda_client = boto3.client("lambda")
-
-# response = lambda_client.invoke(
-#     FunctionName="job-questionmark-dev-contact",
-#     InvocationType="RequestResponse",
-#     Payload=json.dumps({"key": "value"}),
-# )
-
-# result = json.load(response["Payload"])
+            return match.group(1)
+    except Exception:
+        pass
+    return "Unknown error"

@@ -23,6 +23,14 @@ provider:
       quota:
         limit: 100
         period: WEEK
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - lambda:InvokeFunction
+          Resource:
+            - arn:aws:lambda:${aws:region}:${aws:accountId}:function:${self:service}-${sls:stage}-contact
 
 functions:
   api:
