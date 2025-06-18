@@ -15,7 +15,7 @@ provider:
     DOMAIN_NAME: ${env:DOMAIN_NAME}
   apiGateway:
     apiKeys:
-      - job-questionmark-dev
+      - job-questionmark-${sls:stage}
     usagePlan:
       throttle:
         rateLimit: 5
