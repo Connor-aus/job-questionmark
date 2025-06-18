@@ -5,7 +5,7 @@ import requests
 import re
 
 API_BASE_URL = os.getenv("APP_API_BASE_URL", "https://api-dev.whoisconnor.net/")
-X_API_KEY_DEV = os.getenv("APP_API_KEY_DEV")
+X_API_KEY = os.getenv("APP_API_KEY_DEV")
 
 class Response:
     def __init__(self, statusCode: int = 500, body: str = "Unknown error"):
@@ -33,7 +33,7 @@ def send_email(email_content: str) -> Response:
         # Headers for the HTTP request (e.g., shared secret auth)
         headers = {
             "Content-Type": "application/json",
-            "x-api-key": X_API_KEY_DEV
+            "x-api-key": X_API_KEY
         }
 
         # Make the HTTP POST request to the other Lambda
@@ -84,3 +84,15 @@ def parse_error_response(response: requests.Response) -> str:
                     "response": "Unknown error"
                 })
             )
+    
+#     import boto3
+
+# lambda_client = boto3.client("lambda")
+
+# response = lambda_client.invoke(
+#     FunctionName="job-questionmark-dev-contact",
+#     InvocationType="RequestResponse",
+#     Payload=json.dumps({"key": "value"}),
+# )
+
+# result = json.load(response["Payload"])

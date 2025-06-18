@@ -12,15 +12,33 @@ provider:
     LOGGING_LEVEL: ${env:LOGGING_LEVEL}
     CONTACT_EMAIL: ${env:CONTACT_EMAIL}
     AWS_REGION_DEPLOYMENT: ${env:AWS_REGION_DEPLOYMENT}
+    DOMAIN_NAME: ${env:DOMAIN_NAME}
+  apiGateway:
+    apiKeys:
+      - job-questionmark-dev
+    usagePlan:
+      throttle:
+        rateLimit: 5
+        burstLimit: 10
+      quota:
+        limit: 100
+        period: WEEK
 
 functions:
   api:
     handler: src.main.handler
     timeout: 28
     events:
-      - httpApi:
+      - http:
           path: /agent
           method: post
+          private: true
+          cors:
+            origin: '${env:DOMAIN_NAME},http://localhost:3000'
+            headers:
+              - Content-Type
+              - X-Api-Key
+            allowCredentials: false
     layers:
       - Ref: PythonRequirementsLambdaLayer
   
@@ -28,9 +46,16 @@ functions:
     handler: src.main.handler
     timeout: 28
     events:
-      - httpApi:
+      - http:
           path: /contact
           method: post
+          private: true
+          cors:
+            origin: '${env:DOMAIN_NAME},http://localhost:3000'
+            headers:
+              - Content-Type
+              - X-Api-Key
+            allowCredentials: false
     layers:
       - Ref: PythonRequirementsLambdaLayer
 
@@ -62,8 +87,8 @@ plugins:
 
 custom:
   pythonRequirements:
-    layer: true             # <--- This tells the plugin to create a Lambda Layer
+    layer: true
     slim: true
     dockerizePip: true
     zip: true
-    invalidateCaches: true  # optional but helpful during debugging
+    invalidateCaches: true

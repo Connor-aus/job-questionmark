@@ -24,7 +24,7 @@ Key Technologies Used:
 - Front end Framework: React
 - HTTP Requests: axios
 - Testing: jest
-- Front End Hosting & Content Delivery Network (CDN): AWS Simple Sotrage Service (S3), CloudFront
+- Front End Hosting & Content Delivery Network (CDN): AWS Simple Sotrage Service (S3), CloudFront, WAF
 - Access Control: Origin Access Control (OAC), Identity and Access Management (IAM - Principle of Least Privilege)
 
 2. Cloud-Hosted Gaming Platform
