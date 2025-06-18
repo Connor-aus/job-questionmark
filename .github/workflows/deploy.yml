@@ -58,3 +58,4 @@ jobs:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           AWS_REGION_DEPLOYMENT: ${{ secrets.AWS_REGION_DEPLOYMENT }}
           APP_API_KEY_DEV: ${{ secrets.APP_API_KEY_DEV }}
+          DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}

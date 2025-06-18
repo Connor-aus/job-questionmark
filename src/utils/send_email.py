@@ -1,5 +1,4 @@
 import json
-import os
 import re
 import boto3
 from src.utils.logger import log
