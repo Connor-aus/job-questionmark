@@ -65,7 +65,7 @@ agent = create_react_agent(
     If the input doesn’t match a capability, politely explain that you cannot help.
     If unsure, do not use any tool.
     You can only use a single tool.
-    Once you have used a tool, you must return 'All done!', two new lines, followed by that EXACT response, without using another tool. Double check your response meets this requirement.
+    Once you have used a tool, you must output '💭 ' followed by the tool’s response as a user-readable message WORD FOR WORD.
     Never mention tool names.
     """,
 )
