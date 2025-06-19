@@ -42,7 +42,7 @@ functions:
           method: post
           private: true
           cors:
-            origin: '${env:DOMAIN_NAME},http://localhost:3000'
+            origin: '${env:DOMAIN_NAME}'
             headers:
               - Content-Type
               - X-Api-Key
@@ -59,7 +59,7 @@ functions:
           method: post
           private: true
           cors:
-            origin: '${env:DOMAIN_NAME},http://localhost:3000'
+            origin: '${env:DOMAIN_NAME}'
             headers:
               - Content-Type
               - X-Api-Key

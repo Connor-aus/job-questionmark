@@ -19,7 +19,7 @@ try:
     async def invoke_agent(request: Request):
         try:
             body = await request.json()
-            input_text = body.get("input", "")
+            input_text = body.get("message", "")
             result = handle_agent_request(input_text)
             
             if result["success"]:
@@ -55,9 +55,9 @@ try:
     asgi_handler = Mangum(app)
 
     def handler(event, context):
-        if 'httpMethod' not in event and 'input' in event:
+        if 'httpMethod' not in event and 'message' in event:
             try:
-                input_text = event.get("input", "")
+                input_text = event.get("message", "")
                 result = handle_agent_request(input_text)
                 
                 if result["success"]:
