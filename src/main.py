@@ -19,8 +19,11 @@ try:
     app = FastAPI()
 
     origins = [
-        os.getenv("DOMAIN_NAME")
+        os.getenv("DOMAIN_NAME"),
+        os.getenv("ADDITIONAL_CORS_ORIGIN"),
     ]
+
+    # print("CORS allowed origins:", origins)
 
     app.add_middleware(
         CORSMiddleware,

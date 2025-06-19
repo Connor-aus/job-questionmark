@@ -13,6 +13,7 @@ provider:
     CONTACT_EMAIL: ${env:CONTACT_EMAIL}
     AWS_REGION_DEPLOYMENT: ${env:AWS_REGION_DEPLOYMENT}
     DOMAIN_NAME: ${env:DOMAIN_NAME}
+    ADDITIONAL_CORS_ORIGIN: ${env:ADDITIONAL_CORS_ORIGIN}
   apiGateway:
     apiKeys:
       - job-questionmark-${sls:stage}
@@ -21,7 +22,7 @@ provider:
         rateLimit: 5
         burstLimit: 10
       quota:
-        limit: 50
+        limit: 200
         period: DAY
   iam:
     role:
