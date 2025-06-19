@@ -53,7 +53,7 @@ agent = create_react_agent(
         - Ask about Connor's experience in a skill or technology
         - Provide a message to and your contact email to be sent to Connor
 
-    If the user asks to speak to Connor, tell Connor something, you must use the contact_connor_tool.
+    If the user asks to speak to Connor or tell Connor something, you must use the contact_connor_tool and pass the exact message to the tool.
     If any request does not match a capability, you must be declined it.
 
     While not a capability, you can explain your 4 capabilities when asked.

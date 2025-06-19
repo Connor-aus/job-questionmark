@@ -21,6 +21,7 @@ def send_email(email_content: str) -> Response:
 
         log.info(f"Successfully parsed email content. Email: {email}, Subject: {subject}, Message: {message}")
 
+        # Create payload for direct Lambda invocation matching the handler's expected format
         payload = {
             "email": email,
             "subject": subject,

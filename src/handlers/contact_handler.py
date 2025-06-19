@@ -4,7 +4,7 @@ from typing import Dict, Any
 import boto3
 from botocore.exceptions import ClientError
 from src.utils.logger import log
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, field_validator
 
 class ContactRequest(BaseModel):
     email: str
