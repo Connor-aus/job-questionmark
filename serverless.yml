@@ -33,7 +33,7 @@ provider:
             - arn:aws:lambda:${aws:region}:${aws:accountId}:function:${self:service}-${sls:stage}-contact
 
 functions:
-  api:
+  agent:
     handler: src.main.handler
     timeout: 28
     events:
@@ -41,12 +41,7 @@ functions:
           path: /agent
           method: post
           private: true
-          cors:
-            origin: '${env:DOMAIN_NAME}'
-            headers:
-              - Content-Type
-              - X-Api-Key
-            allowCredentials: false
+          cors: true #set in main.py
     layers:
       - Ref: PythonRequirementsLambdaLayer
   
@@ -58,12 +53,7 @@ functions:
           path: /contact
           method: post
           private: true
-          cors:
-            origin: '${env:DOMAIN_NAME}'
-            headers:
-              - Content-Type
-              - X-Api-Key
-            allowCredentials: false
+          cors: true #set in main.py
     layers:
       - Ref: PythonRequirementsLambdaLayer
 
